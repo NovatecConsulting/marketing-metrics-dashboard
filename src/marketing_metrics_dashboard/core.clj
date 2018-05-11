@@ -4,5 +4,5 @@
    :methods [^:static [handler [] String]])
   (:require [clojure.java.io :as io]))
 
-(defn -handler [in]
+(defn -handler []
   (slurp (io/resource "index.html")))
