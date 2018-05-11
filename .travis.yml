@@ -10,4 +10,4 @@ install:
 - lein uberjar
 script:
 - lein uberjar
-- "./upload.sh"
+- "./upload-to-aws-lambda.sh"
