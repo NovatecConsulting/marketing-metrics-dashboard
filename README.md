@@ -5,7 +5,6 @@ An AWS Lambda function that visualizes data returned from
 * https://github.com/nt-ca-aqe/marketing-facebook-metrics
 * (TODO) https://github.com/nt-ca-aqe/twitter-metric-sl
 
-
 ## License
 
 Copyright © 2018 NovaTec GmbH
