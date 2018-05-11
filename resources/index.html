@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+  <title>Vega Lite Bar Chart</title>
+  <meta charset="utf-8">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@3.3.1/build/vega.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@2.4.3/build/vega-lite.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.9.0/build/vega-embed.js"></script>
+
+  <style media="screen">
+    /* Add space between Vega-Embed links  */
+    .vega-actions a {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Marketing Metrics per Quarter</h1>
+  <!-- Container for the visualization -->
+  <div id="vis"></div>
+
+  <script>
+      // Assign the specification to a local variable vlSpec.
+      var token = "EAAbJqRqL4DQBACy2ZACj4dlERxO6VEvqAMlm8aHAxAs3N1RO6Cm9xxhF08mINiMhW9DUTJ0GDsU3SSYFhqoAwdKLCaxrjqQIUIo8kiCw35j8IqkA8J1ciGv0HTSsL4DJH7G5GNc9p8Jtg3DRXtmuTS1DXTpMUZBQjXYV4KdRaG58xEYroLesthVMATvb4ZD";
+      var endpoint = "https://8lf2oytztd.execute-api.eu-central-1.amazonaws.com/dev/MarketingFacebookMetrics/";
+      var id = "me";
+      var url = endpoint + id + "?token=" + token;
+      console.log("url = " + url);
+  var vlSpec = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+      "data": {
+      
+      <!-- "values": [{"quarter":"2012-3","posts":3},{"quarter":"2012-4","posts":6},{"quarter":"2013-1","posts":5},{"quarter":"2013-2","posts":3},{"quarter":"2013-3","posts":1},{"quarter":"2013-4","posts":4},{"quarter":"2014-1","posts":1},{"quarter":"2014-3","posts":1},{"quarter":"2014-4","posts":1}], -->
+        "url": url
+      },
+    "mark": "bar",
+    "width": 500,
+    "height": 300,
+    "encoding": {
+      "y": {"field": "posts", "type": "quantitative"},
+      "x": {
+        "field": "quarter", "type": "ordinal",
+      }
+    }
+  };
+
+  // Embed the visualization in the container with id `vis`
+  vegaEmbed("#vis", vlSpec);
+  </script>
+</body>
+</html>

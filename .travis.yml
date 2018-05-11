@@ -1,0 +1,13 @@
+language: clojure
+env:
+  global:
+    - AWS_ACCESS_KEY_ID=AKIAJE5MMF73BSGCDUGQ
+    - secure: "aybY4j3pRcdzypXhMCFPjruL2/w44IV7ytzTx8mvVo+5BYjlyUEnL3joJHw6C1XmHkD5BitTFnpwX6ZM+yAIKm+boybhD+LPPXaf3N/DNipZU27L1Jj2d/nLnRpohLGTN2D591X/hcADIfPQNKRfyIljW/y3tczcSRU0vxjmx3mX9f8rfeQPecf40B//0tqq6tpTdLKQnoelJsn/d6y30JEOaNPALJyp33jrlNDD0Fkhdpkx6JqCI150HsB9JPxv74trVaIUz6bYIue9BwLJx/wGHwBq0m87jPYJ8G67iFbI9FXGQklPjm9HIZ59+LLbP7kS4TIwbi66w29yyHbh6UtJdv+lCpLQ4yZxD9vtus+bEkYCDigWd8FARRboE0cdo4Aw6hDxLXS3o84LxQPM/JEFZbtED2CltDRvmkLw5ycI8O1U0eOhoxbN47WQf5yzvFoyzsjjnZbG6LPk5lcrBkp+qbWyVTi/9GBQiygITal30BgZKZOW6LFls2vLywkQabsKzJN3XWnOtWkw206m4rsHe6cRRtE5AEPWAbf6V2cngXoHfnMhM2XmD8il9yQhfd5GFfmzlJHUlW2aRwE+nY4D/xdd8BelkONk1b4DqEZ8drueXO6CsMpIsqQUC1GLJlveT94TTCvTfsUoQaL9wAY1icSECiSAmWbbaZG6bMk="
+before_install:
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+install:
+  - lein uberjar
+script:
+  - lein uberjar
+  - "./upload.sh"
